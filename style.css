@@ -1,0 +1,657 @@
+/* =========================================
+   1. IMPOR FONT & RESET DASAR
+   ========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap'); /* Mengambil font Poppins dari Google */
+
+* {
+    margin: 0;                              /* Menghapus jarak luar bawaan browser */
+    padding: 0;                             /* Menghapus jarak dalam bawaan browser */
+    box-sizing: border-box;                 /* Menjaga ukuran elemen tetap stabil walau ditambah garis/padding */
+    font-family: 'Poppins', sans-serif;     /* Menggunakan font Poppins untuk seluruh teks */
+}
+
+body {
+    background-color: #f4f4f4;              /* Latar belakang utama web abu-abu terang */
+    color: #333;                            /* Warna teks standar abu-abu gelap */
+    line-height: 1.6;                       /* Spasi renggang antar baris teks agar nyaman dibaca */
+}
+
+
+/* =========================================
+   2. NAVBAR (MENU NAVIGASI ATAS)
+   ========================================= */
+
+nav {
+    background: #3498db;                    /* Warna biru utama navbar */
+    color: #fff;                            /* Warna teks bawaan di dalam navbar menjadi putih */
+    display: flex;                          /* Mengatur logo dan menu agar berjejer menyamping */
+    justify-content: space-between;         /* Mendorong logo mentok ke kiri, menu mentok ke kanan */
+    align-items: center;                    /* Menyejajarkan posisi persis di tengah secara vertikal */
+    padding: 15px 40px;                     /* Jarak di dalam navbar (atas-bawah 15px, kiri-kanan 40px) */
+    position: sticky;                       /* Memastikan navbar selalu menempel di layar */
+    top: 0;                                 /* Menempel persis di ujung paling atas layar */
+    z-index: 1000;                          /* Memastikan navbar berada di tumpukan teratas (tidak tertutup gambar) */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);  /* Efek bayangan hitam tipis di bawah navbar */
+}
+
+.nav-brand {
+    display: flex;                          /* Membuat gambar logo dan tulisan berjejer menyamping */
+    align-items: center;                    /* Menyejajarkan logo dan tulisan di tengah vertikal */
+    gap: 12px;                              /* Memberi spasi 12px antara logo dan tulisan */
+}
+
+.nav-logo {
+    height: 35px;                           /* Membatasi tinggi maksimal logo agar navbar tidak bengkak */
+    width: auto;                            /* Lebar otomatis menyesuaikan agar gambar tidak gepeng */
+    display: block;                         /* Menghilangkan ruang kosong tak terlihat di bawah gambar */
+}
+
+.nav-brand span {
+    font-size: 22px;                        /* Ukuran huruf judul desa di navbar */
+    font-weight: 700;                       /* Ketebalan huruf (Bold) */
+    letter-spacing: 1px;                    /* Jarak renggang antar karakter huruf */
+}
+
+.nav-links {
+    display: flex;                          /* Deretan menu berjejer menyamping */
+    align-items: center;                    /* Rata tengah vertikal */
+    gap: 10px;                              /* Jarak kosong antar tombol menu */
+    list-style: none;                       /* Menghapus titik-titik (bullet) bawaan dari list */
+}
+
+.nav-links a {
+    color: #fff;                          /* Teks tombol menu warna putih */
+    text-decoration: none;                  /* Menghapus garis bawah pada link */
+    font-size: 15px;                        /* Ukuran font menu */
+    font-weight: 600;                       /* Ketebalan huruf semi-bold */
+    padding: 8px 16px;                      /* Jarak area klik di sekitar teks (membentuk kotak) */
+    border-radius: 8px;                     /* Melengkungkan sudut kotak agar berbentuk kapsul */
+    display: flex;                          /* Mengatur letak teks agar sejajar dengan panah dropdown */
+    align-items: center;                    /* Rata tengah vertikal antara teks dan panah */
+    gap: 6px;                               /* Jarak antara teks dan panah dropdown */
+    transition: all 0.3s ease;              /* Animasi mulus saat tombol berubah warna (0.3 detik) */
+}
+
+.nav-links a:hover:not(.active) {
+    background-color: rgba(255, 255, 255, 0.2); /* Menu biasa berubah jadi putih transparan 20% saat disentuh */
+}
+
+.nav-links a.active {
+    background-color: #fff;                 /* Menu halaman aktif menyala putih pekat */
+    color: #3498db;                         /* Teks menu aktif berubah jadi biru (kebalikan dari navbar) */
+}
+
+
+/* =========================================
+   4. HEADER HALAMAN INTERNAL (Profil & Galeri)
+   ========================================= */
+
+header.page-header, header.profil-header {
+    background-color: #333;               /* Latar belakang kotak judul warna abu-abu gelap */
+    color: #fff;                          /* Warna teks putih */
+    text-align: center;                     /* Teks diposisikan di tengah layar */
+    padding: 40px;                          /* Ketebalan kotak judul */
+    margin-bottom: 30px;                    /* Jarak kotak judul dengan isi halaman di bawahnya */
+}
+
+/* =========================================
+   5. HALAMAN INDEX (HOME) - HERO SECTION
+   ========================================= */
+
+.hero-section {
+    position: relative;                     /* Menjadi pondasi bagi gambar dan teks di dalamnya */
+    width: 100%;                            /* Lebar kotak memakan layar penuh */
+    height: 80vh;                           /* Tingginya 80% dari ukuran tinggi layar HP/PC pengguna */
+    display: flex;                          /* Mengaktifkan sistem penataan isi otomatis */
+    align-items: center;                    /* Mengunci isi tepat di tengah secara vertikal */
+    justify-content: center;                /* Mengunci isi tepat di tengah secara horizontal */
+    overflow: hidden;                       /* Membuang sisa gambar yang meluber keluar batas kotak */
+}
+
+.hero-bg {
+    position: absolute;                     /* Membuat gambar terlepas dan bisa menimpa bagian lain */
+    top: 0;                                 /* Mulai dari sisi paling atas */
+    left: 0;                                /* Mulai dari sisi paling kiri */
+    width: 100%;                            /* Lebar gambar menutupi kotak penuh */
+    height: 100%;                           /* Tinggi gambar menutupi kotak penuh */
+    object-fit: cover;                      /* Memotong otomatis area foto yang berlebih agar tak gepeng */
+    z-index: 1;                             /* Ditempatkan di lapisan paling dasar (terbawah) */
+}
+
+.hero-overlay {
+    position: absolute;                     /* Lapisan ini juga terlepas menutupi layar */
+    top: 0;                                 /* Mulai dari atas */
+    left: 0;                                /* Mulai dari kiri */
+    width: 100%;                            /* Lebar penuh */
+    height: 100%;                           /* Tinggi penuh */
+    background: rgba(0, 0, 0, 0.418);     /* Membuat efek kaca film hitam transparan 55% */
+    z-index: 2;                             /* Ditempatkan di lapisan ke-2 (di atas foto) */
+}
+
+.hero-content {
+    position: relative;                     /* Membawa teks kembali ke alur normal */
+    z-index: 3;                             /* Ditempatkan di lapisan ke-3 (paling atas) agar terbaca */
+    text-align: center;                     /* Semua teks diratakan di tengah */
+    color: #fff;                         /* Teks berwarna putih terang */
+    padding: 20px;                          /* Jarak kanan-kiri agar teks tidak menempel ke pinggir HP */
+}
+
+.hero-content h1 {
+    font-size: 20px;                        /* Ukuran tulisan 'Selamat Datang' */
+    margin-bottom: 12px;                    /* Jarak tulisan ini dengan nama desa di bawahnya */
+    font-weight: 100;                       /* Huruf dicetak tipis (elegan) */
+}
+
+.hero-content p {
+    font-size: 48px;                        /* Ukuran sangat besar untuk nama 'Pemerintah Desa Bero' */
+    margin-bottom: 30px;                    /* Jarak tulisan dengan tombol download */
+    font-weight: 700;                       /* Huruf dicetak sangat tebal */
+}
+
+.action-buttons {
+    display: flex;                          /* Membuat tombol-tombol berjejer ke samping */
+    justify-content: center;                /* Mengumpulkan tombol di tengah-tengah layar */
+    gap: 15px;                              /* Jarak antara tombol satu dengan yang lain */
+}
+
+.btn-kapsul {
+    background: #b4b6b5;                      /* Tombol warna putih */
+    color: #333;                            /* Teks di dalam tombol warna gelap */
+    padding: 20px 40px;                     /* Ukuran area klik (atas-bawah 12px, kiri-kanan 24px) */
+    border-radius: 30px;                    /* Membuat sudut tombol sangat bulat (kapsul) */
+    text-decoration: none;                  /* Menghapus garis bawah pada link tombol */
+    font-size: 18px;                        /* Ukuran teks tombol */
+    font-weight: 600;                       /* Teks agak tebal */
+    transition: all 0.3s ease;              /* Efek pergerakan mulus saat tombol disentuh */
+}
+
+.btn-kapsul:hover {
+    background : #3498db;                    /* Saat disentuh, tombol jadi biru */
+    color: white;                           /* Teks di dalam tombol jadi putih */
+    transform: translateY(-5px);            /* Tombol naik ke atas sebanyak 5 pixel (Efek Melayang) */
+    box-shadow: 0 10px 15px rgba(0,0,0,0.3);/* Bayangan membesar menegaskan bahwa tombol terangkat */
+}
+
+
+/* =========================================
+   6. KONTEN VISI & MISI
+   ========================================= */
+
+.content-section {
+    max-width: 1200px;                      /* Mencegah konten melebar tak terhingga di layar monitor besar */
+    margin: 40px auto;                      /* Memberi jarak luar atas-bawah 40px, dan meratakan di tengah (auto) */
+    padding: 0 20px;                        /* Memberi ruang kosong di pinggir kiri-kanan agar tak nempel ujung layar */
+}
+
+.visi-misi-container {
+    display: grid;                          /* Mengaktifkan sistem kolom (Grid) */
+    grid-template-columns: 1fr 2fr;         /* Membagi layar: Kolom Kiri 1 porsi, Kolom Kanan 2 porsi */
+    gap: 30px;                              /* Lebar celah pemisah antar kedua kolom */
+    align-items: start;                     /* Memastikan posisi awal Visi dan Misi rata atas */
+}
+
+.card.visi {
+    background: white;                      /* Kotak visi warna putih */
+    padding: 30px;                          /* Ruang lega di dalam kotak */
+    border-radius: 10px;                    /* Sudut kotak membulat */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);/* Efek bayangan kotak luar sangat tipis */
+    text-align: center;                     /* Teks ditengah */
+    position: sticky;                       /* Memerintahkan kotak Visi untuk diam mengapung saat di-scroll */
+    top: 80px;                              /* Kotak berhenti mengapung dan tertahan pada jarak 80px dari atap browser */
+}
+
+.card.visi h3 {
+    color: #333399;                         /* Warna judul Visi (Biru keunguan) */
+    margin-bottom: 15px;                    /* Jarak ke isi paragraf visi */
+    font-size: 24px;                        /* Ukuran font judul visi */
+}
+
+.card.visi p {
+    color: #555;                            /* Warna teks paragraf visi */
+    font-size: 16px;                        /* Ukuran teks paragraf visi */
+    line-height: 1.5;                       /* Jarak antar baris paragraf */
+    font-style: italic;                     /* Teks dicetak miring */
+    font-weight: 600;                       /* Teks agak tebal */
+}
+
+.misi-container {
+    display: flex;                          /* Mengaktifkan sistem penataan otomatis untuk Misi */
+    flex-direction: column;                 /* Memaksa nomor-nomor misi untuk berbaris ke bawah */
+    gap: 15px;                              /* Jarak jarak antar kotak poin misi */
+}
+
+.judul-misi {
+    color: #333399;                         /* Warna judul Misi disamakan dengan Visi */
+    font-size: 24px;                        /* Ukuran font disamakan dengan Visi */
+    margin-top: 0;                          /* Menghapus jarak atas bawaan tag H3 */
+    margin-bottom: 5px;                     /* Jarak judul ke kotak misi nomor 1 */
+    text-align: center;                     /* Posisi judul di tengah */
+}
+
+.misi-box {
+    background-color: #fff;                 /* Kotak satuan misi warna putih */
+    padding: 20px 25px;                     /* Ruang di dalam kotak tiap nomor misi */
+    border-radius: 6px;                     /* Sudut kotak sedikit membulat */
+    color: #333;                            /* Teks di dalam kotak warna gelap */
+    font-size: 15px;                        /* Ukuran teks dalam kotak */
+    font-weight: 400;                       /* Ketebalan teks normal */
+    line-height: 1.6;                       /* Jarak baris paragraf misi */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05); /* Bayangan super tipis di tiap kotak nomor */
+}
+
+
+/* =========================================
+   7. BAGIAN POTENSI UMKM DESA
+   ========================================= */
+
+.umkm-section {
+    max-width: 1200px;                      /* Batas maksimal lebar keseluruhan bagian UMKM */
+    margin: 60px auto;                      /* Jarak jauh 60px atas-bawah dari seksi lain, posisi rata tengah */
+    padding: 0 20px;                        /* Jarak pinggir layar */
+}
+
+.umkm-header { 
+    text-align: center;                     /* Judul utama UMKM di tengah layar */
+    margin-bottom: 40px;                    /* Jarak dari judul ke kartu gambar di bawahnya */
+}
+
+.umkm-header h2 { 
+    font-size: 32px;                        /* Ukuran judul besar */
+    color: #222;                            /* Warna gelap nyaris hitam */
+    margin-bottom: 10px;                    /* Jarak dari judul ke kalimat penjelas */
+}
+
+.umkm-header p { 
+    color: #666;                            /* Warna abu-abu redup untuk deskripsi */
+    font-size: 16px;                        /* Ukuran teks standar */
+}
+
+.umkm-grid {
+    display: grid;                          /* Aktifkan sistem grid cerdas */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Aturan susun otomatis: Kartu sejajar jika layar luas, turun baris jika layarnya di bawah 300px per kartu */
+    gap: 30px;                              /* Jarak spasi antar kartu UMKM sebesar 30px */
+}
+
+.umkm-card {
+    background: #fff;                       /* Kartu berwarna putih */
+    border-radius: 10px;                    /* Sudut kartu dibuat melengkung */
+    overflow: hidden;                       /* Memotong paksa foto di dalamnya yang menutupi bagian melengkung kartu */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);/* Bayangan standar saat kartu tak disentuh */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transisi untuk posisi naik dan perubahan bayangan */
+    display: flex;                          /* Memastikan foto di atas dan teks di bawah terstruktur rapi */
+    flex-direction: column;                 /* Mengarahkan susunan jadi atas-bawah */
+}
+
+.umkm-card:hover {
+    transform: translateY(-8px);            /* Efek kartu melayang 8px ke atas saat ditunjuk kursor */
+    box-shadow: 0 12px 20px rgba(0,0,0,0.12);/* Bayangan menebal menyesuaikan efek melayang */
+}
+
+.umkm-foto {
+    width: 100%;                            /* Lebar blok penampung foto memakan seluruh lebar kartu */
+    height: 220px;                          /* Tinggi blok penampung dibatasi dan dipukul rata 220px semua */
+    background-color: #ddd;                 /* Warna abu-abu darurat jika foto gagal dimuat */
+}
+
+.umkm-foto img {
+    width: 100%;                            /* Memaksa foto asli selebar blok penampung */
+    height: 100%;                           /* Memaksa foto asli setinggi blok penampung */
+    object-fit: cover;                      /* Memotong dan memusatkan foto otomatis agar tak gepeng/lonjong */
+    display: block;                         /* Menghapus celah sisa di bawah foto */
+}
+
+.umkm-info {
+    padding: 25px;                          /* Ruang dalam antara teks penjelasan dengan pinggiran kartu */
+    flex-grow: 1;                           /* Menyeimbangkan tinggi area teks agar semua kartu sama rata bawahnya */
+}
+
+.umkm-info h3 { 
+    font-size: 20px;                        /* Ukuran nama produk UMKM */
+    color: #333;                            /* Warna nama produk UMKM */
+    margin: 12px 0;                         /* Jarak vertikal atas-bawah nama produk UMKM */
+}
+
+.umkm-info p { 
+    font-size: 14.5px;                      /* Ukuran deskripsi produk */
+    color: #555;                            /* Warna deskripsi produk */
+    line-height: 1.6;                       /* Spasi baris deskripsi */
+    text-align: justify;                    /* Meratakan ujung kanan dan ujung kiri paragraf deskripsi */
+}
+
+.badge {
+    display: inline-block;                  /* Memperlakukan teks label layaknya tombol/blok */
+    padding: 5px 12px;                      /* Ketebalan blok label warna warni */
+    border-radius: 20px;                    /* Melengkungkan sudut pinggir label menjadi bentuk oval/pil */
+    font-size: 12px;                        /* Teks di dalam label sengaja dibuat kecil */
+    font-weight: 700;                       /* Dibuat tebal agar mudah dibaca sekilas */
+    color: #fff;                            /* Standarnya tulisan berwarna putih */
+    letter-spacing: 0.5px;                  /* Renggang antar huruf agar jelas walau kecil */
+}
+
+.badge-kuning { 
+    background-color: #f1c40f;              /* Memberi warna dasar kuning */
+    color: #333;                            /* Khusus kuning, tulisan digelapkan karena putih di atas kuning tak terbaca */
+}
+
+.badge-merah { 
+    background-color: #e74c3c;              /* Memberi warna dasar merah */
+}
+
+.badge-hijau { 
+    background-color: #2ecc71;              /* Memberi warna dasar hijau */
+}
+
+
+/* =========================================
+   8. HALAMAN PROFIL (SEJARAH & INFO DESA)
+   ========================================= */
+
+.profil-container {
+    max-width: 1200px;                      /* Batas luar total halaman profil */
+    margin: 40px auto;                      /* Jarak aman atas bawah 40px dan posisi otomatis rata tengah (auto) */
+    padding: 0 20px;                        /* Jarak kanan kiri agar isi tak mepet tepi monitor */
+}
+
+.sejarah-wrapper-baru {
+    display: flex;                          /* Mengatur area sejarah berjejer ke samping */
+    gap: 50px;                              /* Jarak antara area foto dan area teks sebesar 50px */
+    align-items: stretch;                   /* Trik memaksa kotak teks dan kotak foto otomatis sama tinggi secara akurat */
+    margin-bottom: 60px;                    /* Jarak paragraf sejarah dengan elemen apapun di bawahnya */
+}
+
+.sejarah-foto-box-baru {
+    flex: 1;                                /* Mengambil jatah ruang 1 bagian (setara dengan teks) */
+    display: flex;                          /* Membuat isi di dalamnya fleksibel menutupi ruang kosong */
+}
+
+.sejarah-foto-box-baru img {
+    width: 100%;                            /* Lebar foto desa 100% dari kotaknya */
+    height: 100%;                           /* Tinggi foto desa 100% dari kotaknya */
+    object-fit: cover;                      /* Trik utama agar foto desa tak gepeng meski ditarik secara otomatis */
+    display: block;                         /* Merapikan blok bawah gambar */
+}
+
+.sejarah-teks-box-baru {
+    flex: 1;                                /* Mengambil jatah ruang 1 bagian (setara dengan foto) */
+}
+
+.judul-profil-baru h2 { 
+    font-size: 42px;                        /* Ukuran teks sejarah desa yang besar */
+    font-weight: bold;                      /* Cetak tebal */
+    color: #000;                            /* Hitam pekat */
+    margin: 0 0 5px 0;                      /* Jarak bawah tipis menuju sub-judul */
+}
+
+.judul-profil-baru span { 
+    font-size: 15px;                        /* Ukuran sub-judul kecil warna abu-abu */
+    color: #666;                            /* Warna abu-abu */
+    display: block;                         /* Memindahkannya otomatis ke baris baru di bawah judul */
+    margin-bottom: 25px;                    /* Jarak dari sub-judul ke kalimat pembuka paragraf */
+}
+
+.sejarah-teks-box-baru p { 
+    font-size: 14.5px;                      /* Ukuran kalimat sejarah */
+    color: #555;                            /* Warna paragraf abu-abu gelap */
+    line-height: 1.7;                       /* Jarak baris yang cukup lebar agar tak lelah dibaca */
+    margin-bottom: 18px;                    /* Jarak antar pergantian paragraf/alinea */
+    text-align: justify;                    /* Membuat paragraf rata lurus kiri dan kanan */
+}
+
+.sejarah-wrapper-baru.gambar-kanan {
+    margin-top: 60px;                       /* Jarak antara Sejarah Atas dan Sejarah Bawah */
+    flex-direction: row-reverse;            /* Memutar letak isi 180 derajat (yang Kiri jadi di Kanan, dan sebaliknya) */
+}
+
+.info-desa-grid {
+    display: grid;                          /* Mengaktifkan sistem kotak-kotak canggih */
+    grid-template-columns: 1fr 1fr;         /* Membagi wilayah monitor sama rata (2 kolom) */
+    gap: 30px;                              /* Jarak antara kotak info pemerintahan dan info batas wilayah */
+    margin-bottom: 40px;                    /* Jarak area ini menuju bagian bawah halaman */
+}
+
+.info-card {
+    background: #fff;                       /* Kotak data putih bersih */
+    padding: 30px;                          /* Ruangan lega 30px di bagian dalam kotaknya */
+    border-radius: 6px;                     /* Sudut melengkung halus */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);/* Bayangan pudar menjalar jauh mengelilingi kotak */
+}
+
+#pemimpin { 
+    border-top: 4px solid #f1c40f;          /* Menambahkan mahkota/garis tebal warna kuning di atas kotak pemimpin */
+}
+
+#batas { 
+    border-top: 4px solid #e74c3c;          /* Menambahkan mahkota/garis tebal warna merah di atas kotak batas wilayah */
+}
+
+.judul-kotak-kembar h3 { 
+    font-size: 22px;                        /* Ukuran teks 'Pemerintahan Desa' */
+    margin: 0;                              /* Hapus jarak luar */
+    color: #222;                            /* Hitam nyaris pekat */
+}
+
+.judul-kotak-kembar span { 
+    font-size: 13px;                        /* Teks penjelas kotak kecil */
+    color: #777;                            /* Warna abu-abu */
+    display: block;                         /* Turun baris */
+    margin-bottom: 20px;                    /* Jarak dari judul kotak ke isinya (data daftar) */
+}
+
+.list-data { 
+    list-style: none;                       /* Menghapus simbol bulat hitam default dari daftar HTML */
+    padding: 0;                             /* Menghapus ruang kosong di pinggir daftarnya */
+}
+
+.list-data li { 
+    font-size: 14px;                        /* Ukuran nama-nama orang/batas */
+    padding: 10px 0;                        /* Jarak atas bawah 10px agar baris tak terlalu padat */
+    border-bottom: 1px dashed #eee;         /* Membuat garis pemisah bawah berupa titik putus-putus samar (#eee) */
+    color: #444;                            /* Warna tulisan daftar */
+}
+
+.list-data li:last-child { 
+    border-bottom: none;                    /* Menghapus aturan garis titik putus-putus khusus pada daftar baris paling akhir */
+}
+
+.periode { 
+    display: block;                         /* Memindahkan tahun/periode ke baris bawahnya sendiri */
+    font-weight: bold;                      /* Tulisan tahun dicetak tebal */
+    color: #333399;                         /* Warna tahun dicetak dengan ungu biru */
+    font-size: 12px;                        /* Ukuran tulisan tahun cukup dibuat kecil */
+    margin-bottom: 2px;                     /* Memisahkan sedikit jarak tahun dengan nama orang */
+}
+
+
+/* =========================================
+   9. HALAMAN KEGIATAN (GALERI)
+   ========================================= */
+
+.kegiatan-container {
+    max-width: 1200px;                      /* Batas lebar total galeri (lebih sempit dari beranda) */
+    margin: 0 auto;                         /* Meratakan ke tengah secara horizontal */
+    padding: 0 20px;                        /* Jarak aman tepi kanan-kiri halaman */
+    margin-bottom: 50px;                    /* Jarak aman spasi galeri terbawah dengan footer nantinya */
+}
+
+.kegiatan-grid {
+    display: grid;                          /* Aktifkan sistem Grid penyusun kartu pintar */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Mengulangi kartu menyamping, tapi turun jika layar kurang dari 300px */
+    gap: 25px;                              /* Jarak tiap kartu galeri foto 25px */
+}
+
+.kegiatan-card {
+    background: #fff;                       /* Badan kartu foto berwarna putih */
+    border-radius: 8px;                     /* Sedikit melengkung bingkainya */
+    overflow: hidden;                       /* Menghalangi foto merusak lengkungan bingkai luar */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08); /* Bayangan statis */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Persiapan untuk animasi melayang */
+}
+
+.kegiatan-foto { 
+    width: 100%;                            /* Wadah foto mengambil 100% lebar kartu */
+    height: 200px;                          /* Memaksa foto selalu berukuran tinggi 200px (tak pandang bentuk asli foto) */
+    background-color: #eaeaea;              /* Warna placeholder kusam bila foto aslinya belum diupload / hilang */
+}
+
+.kegiatan-card img { 
+    width: 100%;                            /* Gambar ditarik penuh */
+    height: 100%;                           /* Gambar ditarik penuh */
+    object-fit: cover;                      /* Gambar diselamatkan dari gepeng/distorsi pakai trik cover ini */
+    display: block;                         /* Menghilangkan ruang misterius di bawah blok gambar (bug HTML lama) */
+}
+
+.kegiatan-info {
+    padding: 20px;                          /* Ruang dalam tulisan penjelasan foto */
+    border-top: 4px solid #3498db;          /* Memisahkan area foto dan teks penjelasan dengan garis tegas warna biru 4px */
+}
+
+.kegiatan-info h3 { 
+    margin: 0 0 5px 0;                      /* Mereset jarak dan cuma memberi celah di sisi bawah judul 5px */
+    font-size: 18px;                        /* Besaran font judul kegiatan desa */
+    font-weight: 600;                       /* Ditebalkan */
+    color: #222;                            /* Dihitamkan */
+}
+
+.kegiatan-tanggal { 
+    display: block;                         /* Pindah baris di bawah judul secara otomatis */
+    font-size: 13px;                        /* Ukuran font keterangan tanggal (kecil) */
+    color: #7f8c8d;                         /* Warna abu-abu pudar */
+    font-weight: 600;                       /* Ditebalkan sedikir */
+    margin-bottom: 10px;                    /* Jarak dari keterangan tanggal turun ke isi paragraf/kalimat */
+}
+
+.kegiatan-info p { 
+    margin: 0;                              /* Menghapus margin bawaan paragraf P */
+    font-size: 14px;                        /* Ukuran isi keterangan foto */
+    font-weight: 400;                       /* Normal (tidak tebal) */
+    color: #555;                            /* Abu-abu standar */
+    text-align: justify;                    /* Membuat blok tulisan rata kiri mentok, rata kanan mentok */
+}
+
+/* =========================================
+   STYLE UNTUK BAGIAN DOWNLOAD MEDIA A4
+   ========================================= */
+
+.download-media-section {
+    max-width: 1100px;                      /* Menyelaraskan lebar maksimal area dengan galeri kegiatan */
+    margin: 80px auto;                      /* Jarak vertikal yang tegas dari galeri atas, posisi rata tengah */
+    padding: 0 20px;                        /* Jarak aman tepi kanan-kiri layar */
+}
+
+.media-header {
+    text-align: center;                     /* Membuat judul teks berada di tengah-tengah */
+    margin-bottom: 40px;                    /* Jarak judul ke kartu media bawahnya */
+}
+
+.media-header h2 {
+    font-size: 32px;                        /* Ukuran font judul */
+    color: #222;                            /* Warna teks gelap */
+    margin-bottom: 10px;                    /* Jarak judul ke baris deskripsi */
+}
+
+.media-header p {
+    color: #666;                            /* Warna abu-abu redup */
+    font-size: 16px;                        /* Ukuran font normal */
+}
+
+.media-grid {
+    display: grid;                          /* Mengaktifkan sistem penataan kolom Grid */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Kolom otomatis membagi dua di laptop, dan bertumpuk di HP */
+    gap: 40px;                              /* Jarak spasi renggang antar kedua kartu */
+}
+
+.media-card {
+    background: #fff;                       /* Latar belakang kartu warna putih bersih */
+    border-radius: 10px;                    /* Sudut kartu dibuat melengkung halus */
+    padding: 35px;                          /* Ruang dalam kotak yang lega */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);/* Efek bayangan tipis halus luar kotak */
+    display: flex;                          /* Mengaktifkan susunan otomatis vertikal ke bawah */
+    flex-direction: column;                 /* Menata elemen menurun berurutan */
+    align-items: center;                    /* Memastikan gambar dan teks terkunci di tengah kartu */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animasi mulus saat melayang */
+}
+
+/* KUNCI: Pengaturan bingkai agar menyerupai rasio kertas cetak A4 Portrait (1 : 1.41) */
+.media-preview {
+    width: 100%;                            /* Lebar maksimal mengikuti kartu */
+    max-width: 260px;                       /* Batas lebar cetak display */
+    height: 367px;                          /* Tinggi disesuaikan dengan rumus perbandingan A4 agar gambar pas portrait */              /* Garis pinggir tipis penanda batas tepi kertas */
+    border-radius: 4px;                     /* Lengkungan tipis di tiap ujung kertas poster */
+    overflow: hidden;                       /* Memotong paksa sisa gambar yang meluber keluar kertas */
+}
+
+.media-preview img {
+    width: 100%;                            /* Gambar memenuhi lebar bingkai */
+    height: 100%;                           /* Gambar memenuhi tinggi bingkai */
+    object-fit: cover;                      /* Memotong dan memusatkan gambar otomatis agar tidak distorsi/gepeng */
+    display: block;                         /* Menghilangkan celah kosong bawah file gambar */
+}
+
+.media-info {
+    text-align: center;                     /* Semua tulisan deskripsi dan tombol ditaruh di tengah */
+    margin-top: 20px;                       /* Jarak pembatas antara bingkai foto A4 di atasnya */
+}
+
+.media-info h3 {
+    font-size: 19px;                        /* Ukuran teks judul poster */
+    color: #222;                            /* Warna tulisan hitam redup */
+    margin-bottom: 10px;                    /* Jarak judul ke teks keterangan */
+}
+
+.media-info p {
+    font-size: 14px;                        /* Ukuran teks keterangan */
+    color: #666;                            /* Warna abu-abu keterangan */
+    margin-bottom: 25px;                    /* Jarak teks keterangan menuju ke tombol unduh kapsul */
+    line-height: 1.5;                       /* Spasi baris paragraf agar tidak menumpuk padat */
+}
+
+
+
+
+/* =========================================
+   10. RESPONSIF UMUM (UNTUK SMARTPHONE/TABLET)
+   ========================================= */
+
+@media (max-width: 768px) {                 /* 🛑 AREA KHUSUS INI HANYA AKAN DIAKTIFKAN OLEH BROWSER JIKA LAYAR LEBARNYA 768px ATAU LEBIH KECIL 🛑 */
+    
+    nav {
+        flex-direction: column;             /* Membatalkan susunan Logo dan Menu dari format Menyamping, paksa jadi Tumpuk Atas-Bawah */
+        padding: 15px;                      /* Mengurangi ketebalan Navbar karena layar HP sempit */
+    }
+    
+    .nav-brand { 
+        margin-bottom: 15px;                /* Memberi sisa jarak antara logo di atas dan menu-menu di bawahnya */
+    } 
+    
+    .nav-links {
+        flex-wrap: wrap;                    /* Jika tulisan menu (Home, Galeri dll) banyak, izinkan patah pindah baris agar tidak bocor menembus layar luar */
+        justify-content: center;            /* Dan pusatkan seluruh tombol menu itu di tengah */
+    }
+
+    .action-buttons {
+        flex-wrap: wrap;                    /* Jika HP sangat kecil, tombol-tombol download akan dipecah otomatis ke bawah */
+    }
+
+    .visi-misi-container { 
+        grid-template-columns: 1fr;         /* Membatalkan sistem kolom Visi Kiri - Misi Kanan. Paksa keduanya jadi 1 Kolom Penuh mengular ke bawah */
+    }
+
+    .sejarah-wrapper-baru, 
+    .sejarah-wrapper-baru.gambar-kanan {
+        flex-direction: column;             /* Membatalkan foto dan paragraf bersandingan kiri-kanan. Paksa jadi atas-bawah */
+        gap: 20px;                          /* Kecilkan jarak pemisahnya jadi cuma 20px */
+    }
+    
+    .info-desa-grid { 
+        grid-template-columns: 1fr;         /* Dua kotak kembar dibatalkan ke-kembaran-nya. Jadi ditumpuk atas-bawah lurus */
+    }
+
+    .judul-profil-baru h2 { 
+        font-size: 32px;                    /* Menurunkan ukuran judul halaman Profil agar tak terlalu kebesaran di layar HP */
+    }
+
+    .kegiatan-grid { 
+        grid-template-columns: 1fr;         /* Apabila sistem grid otomatis sebelumnya gagal, paksa mutlak jadi 1 baris kolom penuh di HP */
+    }
+}
