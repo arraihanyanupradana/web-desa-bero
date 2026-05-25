@@ -2,8 +2,6 @@
    1. IMPOR FONT & RESET DASAR
    ========================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap'); /* Mengambil font Poppins dari Google */
-
 * {
     margin: 0;                              /* Menghapus jarak luar bawaan browser */
     padding: 0;                             /* Menghapus jarak dalam bawaan browser */
