@@ -654,4 +654,18 @@ header.page-header, header.profil-header {
     .kegiatan-grid { 
         grid-template-columns: 1fr;         /* Apabila sistem grid otomatis sebelumnya gagal, paksa mutlak jadi 1 baris kolom penuh di HP */
     }
+
+    /* --- TAMBAHAN UNTUK POSTER A4 DI HP --- */
+    .download-media-section {
+        margin: 40px auto;                  /* Mengurangi jarak kosong yang terlalu jauh di atas dan bawah khusus untuk HP */
+    }
+
+    .media-grid {
+        grid-template-columns: 1fr;         /* Memaksa dua kartu poster A4 menjadi 1 kolom tumpuk ke bawah */
+        gap: 25px;                          /* Mengurangi jarak spasi antar kartu poster */
+    }
+
+    .media-card {
+        padding: 20px;                      /* Mengurangi ruang kosong di dalam pinggiran kartu agar gambar tidak terlalu terjepit di layar sempit */
+    }
 }
