@@ -282,7 +282,6 @@ header.page-header, header.profil-header {
     flex-direction: column;                 /* Mengarahkan susunan jadi atas-bawah */
 }
 
-}
 
 .umkm-foto {
     width: 100%;                            /* Lebar blok penampung foto memakan seluruh lebar kartu */
