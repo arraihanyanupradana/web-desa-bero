@@ -22,7 +22,7 @@ body {
    ========================================= */
 
 nav {
-    background: #3498db;                    /* Warna biru utama navbar */
+    background: #fff;                    /* Warna biru utama navbar */
     color: #fff;                            /* Warna teks bawaan di dalam navbar menjadi putih */
     display: flex;                          /* Mengatur logo dan menu agar berjejer menyamping */
     justify-content: space-between;         /* Mendorong logo mentok ke kiri, menu mentok ke kanan */
