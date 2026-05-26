@@ -282,9 +282,6 @@ header.page-header, header.profil-header {
     flex-direction: column;                 /* Mengarahkan susunan jadi atas-bawah */
 }
 
-.umkm-card:hover {
-    transform: translateY(-8px);            /* Efek kartu melayang 8px ke atas saat ditunjuk kursor */
-    box-shadow: 0 12px 20px rgba(0,0,0,0.12);/* Bayangan menebal menyesuaikan efek melayang */
 }
 
 .umkm-foto {
